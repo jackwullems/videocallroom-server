@@ -1,10 +1,10 @@
 {
-  "name": "react-videocall",
+  "name": "serverdan",
   "version": "1.0.0",
   "description": "React VideoCall App",
   "scripts": {
     "start": "cd server && node main.js",
-    "watch:server": "HTTPS=true nodemon server/main.js",
+    "watch:server": "nodemon server/main.js",
     "watch:client": "webpack-dev-server --config client/webpack-dev.config.js",
     "build": "cd client && webpack --config webpack-prod.config.js"
   },
@@ -53,12 +53,20 @@
     "webpack-dev-server": "3.9.0"
   },
   "engines": {
-    "node": "10.16.3"
+    "node": "12.16.3"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nguymin4/react-videocall.git"
   },
   "author": "Minh Son Nguyen",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nguymin4/react-videocall/issues"
+  },
+  "homepage": "https://github.com/nguymin4/react-videocall#readme",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  }
 }

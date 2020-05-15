@@ -34,13 +34,17 @@ const upload = multer({ storage: storage })
 app.post('/enter', upload.single('postImage'), (req, res, next) => {
   try {
     const clientId = req.body.clientId
+    // const userAccount = req.body.userAccount.userAccount
     const sizeOf = require('image-size')
     const src = req.file.path
     const dimensions = sizeOf(src)
     const user = users.get(clientId)
+    // const user = userAccount
     if (user) {
       user.login = true
       user.clientName = req.body.clientName
+      user.account = req.body.account
+      user.priceHour = req.body.priceHour
       user.country = req.body.country
       user.language = req.body.language
       user.postImage = {
@@ -65,7 +69,9 @@ app.post('/getonlineusers', (req, res, next) => {
       if (user.login) {
         onlineUsers.push({
           clientId: user.clientId,
+          account: user.account,
           clientName: user.clientName,
+          priceHour: user.priceHour,
           postImage: user.postImage,
           country: user.country,
           language: user.language
